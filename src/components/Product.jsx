@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { add,remove } from "../redux/slices/CartSlice";
 import { Toaster,toast } from "react-hot-toast";
+import { FaRupeeSign } from "react-icons/fa";
 
 function Product({item}){
     const {carts} = useSelector((state) => state.cart);
@@ -15,16 +16,16 @@ function Product({item}){
     }
 
     return(
-        <div className="h-80 w-1/5 my-5 rounded-lg mx-1 shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:scale-110 ease-in duration-300 group">
-            <p className="text-lg text-slate-600 font-bold text-center">{item.title.substring(0,15)+"..."}</p>
-            <p className="text-[10px] text-slate-400 mx-10 my-1">{item.description.substring(0,60)+'...'}</p>
-            <img className="h-[180px] w-3/5 mx-auto object-contain" src={item.image} alt="pic"/>
-            <div className="flex justify-between mx-4 mt-6 flex-wrap">
-                <span className="text-green-600 font-bold text-md">${item.price}</span>
+        <div className="h-[400px] bg-slate-200 w-11/12 sm:w-80 my-5 py-3 rounded-lg mx-1 hover:scale-105 border-2 border-gray-300 inset-shadow-xs ease-in duration-300 group">
+            <p className="text-lg text-slate-700 font-bold text-center">{item.title.substring(0,30)+".."}</p>
+            <p className="text-xs text-slate-500 font-normal mx-10 my-1">{item.description.substring(0,75)+'...'}</p>
+            <img className="h-52 px-4 bg-white rounded-md py-2 md:h-56 w-11/12 sm:w-3/4 my-1  mx-auto object-contain" src={item.image} alt="pic"/>
+            <div className="flex justify-between mx-4 my-5 flex-wrap">
+                <span className="text-blue-700 font-bold text-2xl font-sans px-2 py-1"><FaRupeeSign className="inline" />{item.price}</span>
                 {
                     !(carts.some((p)=>p.id==item.id)) ? 
-                    (<button className="border-2 border-gray-500 rounded-2xl px-2 py-1 text-xs font-medium duration-500 group-hover:bg-slate-700 group-hover:text-white group-hover:font-bold" onClick={addToCart}>ADD TO CART</button>) : 
-                    (<button  className="border-2 border-gray-500 rounded-2xl px-2 py-1 text-xs font-medium duration-500 group-hover:bg-slate-700 group-hover:text-white group-hover:font-bold " onClick={removeFromCart}>REMOVE ITEM</button>)
+                    (<button className="w-fit h-10 px-2 py-1 bg-slate-800 text-sm font-semibold rounded-md text-white" onClick={addToCart}>ADD TO CART</button>) : 
+                    (<button  className="w-fit h-10 px-2 py-1 bg-slate-800 text-sm font-semibold rounded-md text-white " onClick={removeFromCart}>REMOVE ITEM</button>)
                 }
             </div>
         </div>

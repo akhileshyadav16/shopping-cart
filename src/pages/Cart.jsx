@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import { useEffect, useState } from "react";
+import { FaRupeeSign } from "react-icons/fa";
+
 
 function Cart(){
     const {carts} = useSelector((state) => state.cart);
@@ -33,7 +35,7 @@ function Cart(){
                                 </p>
                             </div>
                             <div className="mb-10">
-                                <p className="font-bold text-2xl text-slate-600">Total Amount : <span className=" text-black font-bold"> ${totalAmount}</span></p>
+                                <p className="font-bold text-2xl text-slate-600">Total Amount : <span className=" text-black font-bold"><FaRupeeSign className="inline" />{totalAmount}</span></p>
                                 <button className="bg-green-600 w-48 h-10 text-white rounded-lg my-5 mx-auto">Checkout Now</button>
                             </div>
                         </div>

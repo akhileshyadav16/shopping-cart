@@ -27,8 +27,8 @@ function Home(){
     },[])
 
     return(
-        <div className="w-screen">
-            <div className="w-4/5 mx-auto flex flex-wrap justify-evenly my-10">
+        <div className="w-full h-full">
+            <div className="w-11/12 sm:w-4/5 mx-auto flex flex-wrap justify-evenly my-10">
                 {
                     loading ? (<Spinner/>) :
                     (
