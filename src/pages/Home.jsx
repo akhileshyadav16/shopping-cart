@@ -4,7 +4,7 @@ import Product from "../components/Product";
 
 function Home(){
     const API_URL = "https://fakestoreapi.com/products";
-    const [loading,setLoading] = useState(false);
+    const [loading,setLoading] = useState(true);
     const [items,setItems] = useState([]);
 
     async function fetchShoppingData(){
@@ -19,7 +19,6 @@ function Home(){
             console.log("error");
         }
         setLoading(false);
-        console.log("setloading false");
     }
 
     useEffect(()=>{
